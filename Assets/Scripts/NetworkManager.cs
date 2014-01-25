@@ -34,13 +34,13 @@ public class NetworkManager : MonoBehaviour
 
     private void StartServer()
     {
-        Network.InitializeServer(5, 55553, !Network.HavePublicAddress());
+        Network.InitializeServer(5, 44000, !Network.HavePublicAddress());
         MasterServer.RegisterHost(typeName, gameName);
     }
 
     void OnServerInitialized()
     {
-        SpawnPlayer();
+        SpawnServerPlayer();
     }
 
 
@@ -70,12 +70,17 @@ public class NetworkManager : MonoBehaviour
 
     void OnConnectedToServer()
     {
-        SpawnPlayer();
+		SpawnClientPlayer();
     }
 
 
-    private void SpawnPlayer()
+    private void SpawnClientPlayer()
     {
-        Network.Instantiate(playerPrefab, Vector3.up * 5, Quaternion.identity, 0);
+        Network.Instantiate(playerPrefab, new Vector3(5, 3, 5), Quaternion.identity, 0);
     }
+
+	private void SpawnServerPlayer() 
+	{
+		Network.Instantiate(playerPrefab, new Vector3(0, 0, 5), Quaternion.identity, 0);
+	}
 }
