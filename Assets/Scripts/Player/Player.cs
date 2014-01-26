@@ -10,7 +10,7 @@ public class Player : MonoBehaviour, IKillable, ITeleportable {
 
 	void Start () 
 	{
-		
+		playerID = (int) GlobalPlayer.g_PlayerID;																																																																									
 	}
 	
 
