@@ -24,6 +24,7 @@ public class Player : MonoBehaviour, IKillable, ITeleportable {
 	public void Kill()
 	{
 		print("I'm player"+playerID.ToString()+" and I died");
+
 		transform.position = spawnPoint.position;
 	}
 

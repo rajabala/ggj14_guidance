@@ -100,4 +100,13 @@ public class RPCHandler : MonoBehaviour {
 	}
 
 
+	// Player death RPC
+	public void KillPlayerCallback(Vector3 worldPos) {
+		networkView.RPC ("DeathEffects", RPCMode.OthersBuffered, worldPos);
+	}
+
+	[RPC] void DeathEffects(Vector3 worldPos) {
+		GameObject.Find("DeathSkull").SendMessage("ShowIcon", new Vector3(worldPos.x, worldPos.y, 3));
+	}
+
 }
