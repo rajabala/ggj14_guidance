@@ -3,84 +3,79 @@ using System.Collections;
 
 public class NetworkManager : MonoBehaviour
 {
+	private static NetworkManager g_Instance;
+
+	// members
     private const string typeName = "RajaServer";
     private const string gameName = "GuideGame";
 
-    private bool isRefreshingHostList = false;
+    public bool isRefreshingHostList;
+	private bool haveTwoPlayers = false;
     private HostData[] hostList;
 
-    public GameObject playerPrefab;
+	// singleton instance
+	public static NetworkManager Instance{
+		get{
+			if(g_Instance == null)
+			{
+				g_Instance = new NetworkManager();
+			}
+			return g_Instance;
+		}
+	}
 
-    void OnGUI()
-    {
-        if (!Network.isClient && !Network.isServer)
-        {
-            if (GUI.Button(new Rect(100, 100, 250, 100), "Start Server"))
-                StartServer();
-
-            if (GUI.Button(new Rect(100, 250, 250, 100), "Refresh Hosts"))
-                RefreshHostList();
-
-            if (hostList != null)
-            {
-                for (int i = 0; i < hostList.Length; i++)
-                {
-                    if (GUI.Button(new Rect(400, 100 + (110 * i), 300, 100), hostList[i].gameName))
-                        JoinServer(hostList[i]);
-                }
-            }
-        }
-    }
-
-    private void StartServer()
-    {
-        Network.InitializeServer(5, 44000, !Network.HavePublicAddress());
-        MasterServer.RegisterHost(typeName, gameName);
-    }
-
-    void OnServerInitialized()
-    {
-        SpawnServerPlayer();
-    }
-
-
-    void Update()
-    {
-        if (isRefreshingHostList && MasterServer.PollHostList().Length > 0)
-        {
-            isRefreshingHostList = false;
-            hostList = MasterServer.PollHostList();
-        }
-    }
-
-    private void RefreshHostList()
-    {
-        if (!isRefreshingHostList)
-        {
-            isRefreshingHostList = true;
-            MasterServer.RequestHostList(typeName);
-        }
-    }
-
-
-    private void JoinServer(HostData hostData)
-    {
-        Network.Connect(hostData);
-    }
-
-    void OnConnectedToServer()
-    {
-		SpawnClientPlayer();
-    }
-
-
-    private void SpawnClientPlayer()
-    {
-        Network.Instantiate(playerPrefab, new Vector3(5, 3, 5), Quaternion.identity, 0);
-    }
-
-	private void SpawnServerPlayer() 
+	// Server side logic
+	public void StartServer()
 	{
-		Network.Instantiate(playerPrefab, new Vector3(0, 0, 5), Quaternion.identity, 0);
+		Network.InitializeServer(5, 44000, !Network.HavePublicAddress());
+		MasterServer.RegisterHost(typeName, gameName);
+		Debug.Log ("Started server, registered with master server for discovery");
+	}
+	
+	void OnServerInitialized() // Network override.
+	{
+		GlobalPlayer.g_PlayerID = GlobalPlayer.EPlayerId.PlayerOne;
+		Debug.Log ("Server initialized");
+	}
+
+	void OnPlayerConnected() { // Network override.
+		haveTwoPlayers = true;
+		Debug.Log ("Player 2 has connected. Loading scene...");
+		Application.LoadLevel("Scene_Test");
+	}
+
+	void OnPlayerDisconnected() { // Network override.
+		haveTwoPlayers = false;
+		Debug.Log ("Player 2 has disconnected. Loading loader scene...");	
+		DontDestroyOnLoad(this);
+		Application.LoadLevel("Scene_Load");
+	}
+
+	// Client side logic
+	public void RefreshHostList()
+	{
+		if (!isRefreshingHostList)
+		{
+			isRefreshingHostList = true;
+			MasterServer.RequestHostList(typeName);
+		}
+	}
+
+	public void JoinServer(HostData hostData)
+	{
+		Network.Connect(hostData);
+		Debug.Log("Attempting to join IP " + hostData.ip[0] + " : " + hostData.port);
+	}
+	
+	void OnConnectedToServer()  // Network override.
+	{
+		GlobalPlayer.g_PlayerID = GlobalPlayer.EPlayerId.PlayerTwo;
+		Debug.Log ("Connected to server, loading level...");
+		DontDestroyOnLoad(this);
+		Application.LoadLevel("Scene_Test");
+	}
+	
+	public HostData[] GetMasterServerHostList() {
+		return MasterServer.PollHostList();
 	}
 }
