@@ -12,6 +12,10 @@ public static class GlobalPlayer {
 		Application.LoadLevel(g_LevelNames[(++currentLevel) % g_LevelNames.Length]);
 	}
 
+	public static void LoadSceneLoad() {
+		Application.LoadLevel(g_LevelNames[0]);
+	}
+
 	public static void PrintDetails()
 	{
 		Debug.Log ("Player id = " + g_PlayerID);

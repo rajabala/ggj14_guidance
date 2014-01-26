@@ -9,6 +9,12 @@ public class RPCHandler : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		theSystem = FindObjectOfType<ParticleSystem> ();
+
+		// assign color for the system
+		if (GlobalPlayer.g_PlayerID   == GlobalPlayer.EPlayerId.PlayerOne)
+			theSystem.renderer.material.color = Color.blue; // p2 appears as blue to p1
+		else if (GlobalPlayer.g_PlayerID == GlobalPlayer.EPlayerId.PlayerTwo)
+			theSystem.renderer.material.color = Color.red; // p1 appears as red to p2
 	}
 	
 	// Update is called once per frame
@@ -47,12 +53,12 @@ public class RPCHandler : MonoBehaviour {
 	[RPC] void MouseEffects(Vector3 worldPos, bool isLeft)
 	{
 		if (isLeft) {
-			Debug.Log ("Left click at " + worldPos);
-			GameObject.Find("FacebookLike").transform.position = new Vector3(worldPos.x, worldPos.y, 3);
+			//Debug.Log ("Left click at " + worldPos);
+			GameObject.Find("FacebookLike").SendMessage("ShowIcon", new Vector3(worldPos.x, worldPos.y, 3));
 		} 
 		else {
-			Debug.Log ("Right click at " + worldPos);
-			GameObject.Find("FacebookDislike").transform.position = new Vector3(worldPos.x, worldPos.y, 3);
+			//Debug.Log ("Right click at " + worldPos);
+			GameObject.Find("FacebookDislike").SendMessage("ShowIcon", new Vector3(worldPos.x, worldPos.y, 3));
 		}
 
 
@@ -64,14 +70,10 @@ public class RPCHandler : MonoBehaviour {
 					rightMouseDown= Input.GetMouseButtonDown (1); 
 
 		if (leftMouseDown || rightMouseDown) {
-//				Vector3 screenPos = Input.mousePosition; 
-//			    screenPos.z = 0;
-//				Vector3 worldPos = Camera.main.ScreenToWorldPoint (screenPos);
-//				worldPos.z = -1.75f;
-
 			Plane intersectPlane = new Plane(new Vector3(0,0,-1), new Vector3(0,0, 5));
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			float ent = 100.0f;
+
 			if (intersectPlane.Raycast(ray, out ent))
 			{
 				Debug.Log("Plane Raycast hit at distance: " + ent);
