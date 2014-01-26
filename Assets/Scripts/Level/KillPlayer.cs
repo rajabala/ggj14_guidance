@@ -3,6 +3,7 @@ using System.Collections;
 
 public class KillPlayer : MonoBehaviour {
 
+	/*
 	public GameObject playerOne;
 	public GameObject playerTwo;
 
@@ -24,16 +25,14 @@ public class KillPlayer : MonoBehaviour {
 	{
 
 	}
-
-	void OnTriggerEnter(Collider collider)
+*/
+	void OnTriggerEnter(Collider player)
 	{
-		if (collider.gameObject == playerOne)
+		if (collider.gameObject.tag == "Player")
 		{
-			playerOneKill.Kill();
-		}
-		if (collider.gameObject == playerTwo)
-		{
-			playerTwoKill.Kill();
+			Player lets = player.gameObject.GetComponent<Player>();
+			lets.Kill();
 		}
 	}
+
 }
