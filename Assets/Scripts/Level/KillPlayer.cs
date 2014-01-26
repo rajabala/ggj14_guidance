@@ -30,6 +30,7 @@ public class KillPlayer : MonoBehaviour {
 	{
 		if (player.gameObject.tag == "Player")
 		{
+			player.BroadcastMessage("KillPlayerCallback", player.transform.position);
 			Player lets = player.gameObject.GetComponent<Player>();
 			lets.Kill();
 		}
