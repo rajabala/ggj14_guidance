@@ -7,10 +7,7 @@ public class Visibility : MonoBehaviour {
 
 	void Start () 
 	{
-		if (GlobalPlayer.playerID != null)
-			SetVisibility();
-		else
-			print ("Global Player ID is Null! Everything stays visible!");
+		SetVisibility();
 	}
 	
 
@@ -19,11 +16,11 @@ public class Visibility : MonoBehaviour {
 		switch (whichPlayerCanSeeMe)
 		{
 		case 0:
-			if (GlobalPlayer.playerID != 0)
+			if (GlobalPlayer.g_PlayerID == GlobalPlayer.EPlayerId.PlayerOne)
 				renderer.enabled = false;
 			break;
 		case 1:
-			if (GlobalPlayer.playerID != 1)
+			if (GlobalPlayer.g_PlayerID == GlobalPlayer.EPlayerId.PlayerTwo)
 				renderer.enabled = false;
 			break;
 		default:

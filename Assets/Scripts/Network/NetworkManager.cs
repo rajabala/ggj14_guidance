@@ -36,19 +36,20 @@ public class NetworkManager : MonoBehaviour
 	{
 		GlobalPlayer.g_PlayerID = GlobalPlayer.EPlayerId.PlayerOne;
 		Debug.Log ("Server initialized");
+		GlobalPlayer.PrintDetails();
 	}
 
 	void OnPlayerConnected() { // Network override.
 		haveTwoPlayers = true;
 		Debug.Log ("Player 2 has connected. Loading scene...");
-		Application.LoadLevel("Scene_Test");
+		Application.LoadLevel("Scene_Lvl1");
 	}
 
 	void OnPlayerDisconnected() { // Network override.
 		haveTwoPlayers = false;
 		Debug.Log ("Player 2 has disconnected. Loading loader scene...");	
 		DontDestroyOnLoad(this);
-		Application.LoadLevel("Scene_Load");
+		GlobalPlayer.LoadNextLevel();
 	}
 
 	// Client side logic
@@ -70,9 +71,13 @@ public class NetworkManager : MonoBehaviour
 	void OnConnectedToServer()  // Network override.
 	{
 		GlobalPlayer.g_PlayerID = GlobalPlayer.EPlayerId.PlayerTwo;
+		
+		GlobalPlayer.PrintDetails();
+
 		Debug.Log ("Connected to server, loading level...");
+
 		DontDestroyOnLoad(this);
-		Application.LoadLevel("Scene_Test");
+		GlobalPlayer.LoadNextLevel();
 	}
 	
 	public HostData[] GetMasterServerHostList() {

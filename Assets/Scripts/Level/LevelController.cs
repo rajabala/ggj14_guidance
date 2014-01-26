@@ -5,8 +5,7 @@ public class LevelController : MonoBehaviour
 {
 	
 
-	public GameObject playerOne;
-	public GameObject playerTwo;
+	public GameObject localPlayer;
 	private Player playerOneStats;
 	private Player playerTwoStats;
 
@@ -14,28 +13,16 @@ public class LevelController : MonoBehaviour
 	public Transform spawnPoint;
 
 
+	void Awake() {
+		GlobalPlayer.PrintDetails();
 
-	void Start () 
-	{
-		GetPlayerIDs();
-
+		if (GlobalPlayer.g_PlayerID == GlobalPlayer.EPlayerId.PlayerOne) {
+			GameObject go = GameObject.Find("StartPlayerOne/SpawnPoint"); 
+			if (go != null ) spawnPoint = go.transform;
+		}
+		else if (GlobalPlayer.g_PlayerID == GlobalPlayer.EPlayerId.PlayerOne) {
+			GameObject go = GameObject.Find("StartPlayerTwo/SpawnPoint"); 
+			if (go != null ) spawnPoint = go.transform;
+		}
 	}
-	
-
-	void Update () 
-	{
-		
-	}
-
-	void GetPlayerIDs()
-	{
-		playerOneStats = playerOne.GetComponent<Player>();
-		playerTwoStats = playerTwo.GetComponent<Player>();
-
-		//Network Code to assign player ID. to be changed later on.
-		playerOneStats.playerID = 0;
-		playerTwoStats.playerID = 1;
-	}
-	
-
 }
