@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class Player : MonoBehaviour
+public class NetPlayer : MonoBehaviour
 {
     public float speed = 10f;
 
