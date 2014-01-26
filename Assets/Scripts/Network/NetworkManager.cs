@@ -42,14 +42,14 @@ public class NetworkManager : MonoBehaviour
 	void OnPlayerConnected() { // Network override.
 		haveTwoPlayers = true;
 		Debug.Log ("Player 2 has connected. Loading scene...");
-		DontDestroyOnLoad(this);
+		//DontDestroyOnLoad(this);
 		GlobalPlayer.LoadNextLevel();
 	}
 
 	void OnPlayerDisconnected() { // Network override.
 		haveTwoPlayers = false;
 		Debug.Log ("Player 2 has disconnected. Loading loader scene...");	
-		DontDestroyOnLoad(this);
+		//DontDestroyOnLoad(this);
 		GlobalPlayer.LoadSceneLoad();
 	}
 
@@ -77,7 +77,7 @@ public class NetworkManager : MonoBehaviour
 
 		Debug.Log ("Connected to server, loading level...");
 
-		DontDestroyOnLoad(this);
+		//DontDestroyOnLoad(this);
 		GlobalPlayer.LoadNextLevel();
 	}
 	
