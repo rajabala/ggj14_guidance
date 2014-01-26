@@ -3,18 +3,13 @@ using System.Collections;
 
 public class RPCHandler : MonoBehaviour {
 	ParticleSystem theSystem;
-	public GUIText good, bad;
+	public bool localPlayerAtExit = false;
+	public bool remotePlayerAtExit = false;
+	private float timeElapsed = 0;
 
-	float timeElapsed = 0;
 	// Use this for initialization
 	void Start () {
 		theSystem = FindObjectOfType<ParticleSystem> ();
-
-		// assign color for the system
-		if (GlobalPlayer.g_PlayerID   == GlobalPlayer.EPlayerId.PlayerOne)
-			theSystem.renderer.material.color = Color.blue; // p2 appears as blue to p1
-		else if (GlobalPlayer.g_PlayerID == GlobalPlayer.EPlayerId.PlayerTwo)
-			theSystem.renderer.material.color = Color.red; // p1 appears as red to p2
 	}
 	
 	// Update is called once per frame
@@ -29,7 +24,11 @@ public class RPCHandler : MonoBehaviour {
 		}
 		MouseEffectsBothWays();
 
+		if (localPlayerAtExit && remotePlayerAtExit) 
+			GlobalPlayer.LoadNextLevel();
 	}
+
+
 
 	// Smoke trail effect RPC
 	[RPC] void PlayEffects(Vector3 position)
@@ -76,13 +75,29 @@ public class RPCHandler : MonoBehaviour {
 
 			if (intersectPlane.Raycast(ray, out ent))
 			{
-				Debug.Log("Plane Raycast hit at distance: " + ent);
+				//Debug.Log("Plane Raycast hit at distance: " + ent);
 				Vector3 hitPoint = ray.GetPoint(ent);
 				networkView.RPC ("MouseEffects", RPCMode.OthersBuffered, hitPoint, leftMouseDown);
 		     }
 		}
 	}
 
+
+	// Portal exit RPC
+	[RPC] void ExitStatus(bool otherPlayerExitStatus) {
+		remotePlayerAtExit = otherPlayerExitStatus;
+	}
+
+	[RPC] void TellExitStatusToOthers() {
+		networkView.RPC ("ExitStatus", RPCMode.OthersBuffered, localPlayerAtExit);
+	}
+	
+	public void PortalExitCallback(bool playerAtExit) 
+	{
+		// called by the exit trigger
+		localPlayerAtExit = playerAtExit;
+		TellExitStatusToOthers();
+	}
 
 
 }
