@@ -81,7 +81,7 @@ GameObject:
   - 33: {fileID: 3300004}
   - 65: {fileID: 6500000}
   - 23: {fileID: 2300004}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: StartPlayerTwo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,7 +116,7 @@ GameObject:
   - 33: {fileID: 3300008}
   - 65: {fileID: 6500006}
   - 23: {fileID: 2300008}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: StartPlayerOne
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -493,8 +493,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a4e2f25cce0f6d40a34d856e6cc9850, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  localPlayer: {fileID: 0}
-  spawnPoint: {fileID: 0}
+  localPlayer: {fileID: 100002, guid: 6b9bef1a0d5c443c7a861d4ed66c8c62, type: 2}
+  spawnPoint: {fileID: 400012}
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1

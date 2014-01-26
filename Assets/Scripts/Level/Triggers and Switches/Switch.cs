@@ -5,9 +5,10 @@ public class Switch : MonoBehaviour, ISwitchable {
 
 	public GameObject targetToActivate;
 
+	public bool twoWay;
 	private ITriggerable triggerScriptInTarget;
-
 	private bool activated;
+	private float cooldownTime;
 
 	void Start () 
 	{
@@ -15,6 +16,17 @@ public class Switch : MonoBehaviour, ISwitchable {
 		triggerScriptInTarget = (ITriggerable)targetToActivate.GetComponent(typeof(ITriggerable));
 
 		activated = false;
+		cooldownTime = 1;
+	}
+
+	void Update()
+	{
+		if (activated && twoWay)
+		{
+			cooldownTime -= Time.deltaTime;
+			if (cooldownTime < 0)
+				activated = false;
+		}
 	}
 
 	void OnTriggerEnter(Collider player)

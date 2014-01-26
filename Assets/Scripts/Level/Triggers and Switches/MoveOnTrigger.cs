@@ -36,7 +36,7 @@ public class MoveOnTrigger : MonoBehaviour, ITriggerable {
 		                            transform.position.z + zDirection);
 	}
 
-	void FixedUpdate () 
+	void Update () 
 	{
 		if (moving)
 		{
@@ -48,7 +48,7 @@ public class MoveOnTrigger : MonoBehaviour, ITriggerable {
 	public void Trigger()
 	{
 		moving = true;
-
+		print ("Move Trigger Activated");
 		if (moveBackAndForth)
 			moveDirection = moveDirection == 0 ? 1 : 0; //Switch directions each time this is triggered
 		else
@@ -59,7 +59,8 @@ public class MoveOnTrigger : MonoBehaviour, ITriggerable {
 	{
 		Vector3 placeToMoveTo = moveDirection == 0 ? originalLocation : moveLocation;
 
-		Vector3.Lerp(transform.position , placeToMoveTo, lerpSpeed);
+
+		transform.position = Vector3.Lerp(transform.position , placeToMoveTo, lerpSpeed);
 
 		if (transform.position == placeToMoveTo)
 			moving = false;
