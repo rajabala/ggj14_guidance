@@ -42,14 +42,15 @@ public class NetworkManager : MonoBehaviour
 	void OnPlayerConnected() { // Network override.
 		haveTwoPlayers = true;
 		Debug.Log ("Player 2 has connected. Loading scene...");
-		Application.LoadLevel("Scene_Lvl1");
+		DontDestroyOnLoad(this);
+		GlobalPlayer.LoadNextLevel();
 	}
 
 	void OnPlayerDisconnected() { // Network override.
 		haveTwoPlayers = false;
 		Debug.Log ("Player 2 has disconnected. Loading loader scene...");	
 		DontDestroyOnLoad(this);
-		GlobalPlayer.LoadNextLevel();
+		GlobalPlayer.LoadSceneLoad();
 	}
 
 	// Client side logic
