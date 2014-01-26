@@ -9,7 +9,7 @@ public class NetworkManager : MonoBehaviour
     private const string typeName = "RajaServer";
     private const string gameName = "GuideGame";
 
-    public bool isRefreshingHostList;
+    public bool isRefreshingHostList = false;
 	private bool haveTwoPlayers = false;
     private HostData[] hostList;
 

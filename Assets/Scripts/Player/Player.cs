@@ -10,7 +10,9 @@ public class Player : MonoBehaviour, IKillable, ITeleportable {
 
 	void Start () 
 	{
-		playerID = (int) GlobalPlayer.g_PlayerID;																																																																									
+		playerID = (int) GlobalPlayer.g_PlayerID;	
+		SmoothFollow follow = Camera.main.GetComponent<SmoothFollow> ();
+		follow.target = transform;
 	}
 	
 
@@ -18,9 +20,7 @@ public class Player : MonoBehaviour, IKillable, ITeleportable {
 	{
 		
 	}
-
-
-
+	
 	public void Kill()
 	{
 		print("I'm player"+playerID.ToString()+" and I died");

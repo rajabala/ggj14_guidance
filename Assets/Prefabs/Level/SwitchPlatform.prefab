@@ -32,7 +32,7 @@ GameObject:
   - 65: {fileID: 6500000}
   - 23: {fileID: 2300002}
   - 114: {fileID: 11400002}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SwitchPlatform
   m_TagString: Level
   m_Icon: {fileID: 0}

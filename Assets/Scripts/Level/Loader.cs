@@ -20,8 +20,8 @@ public class Loader : MonoBehaviour {
 				gt.text = "Waiting for a friend to join...";
 			}
 			
-			if (GUI.Button(new Rect(100, 250, 250, 100), "Refresh Hosts"))
-				nm.RefreshHostList();
+			//if (GUI.Button(new Rect(100, 250, 250, 100), "Refresh Hosts"))
+
 			
 			if (hostList != null)
 			{
@@ -36,10 +36,14 @@ public class Loader : MonoBehaviour {
 	
 	void Update()
 	{
-		if (nm.isRefreshingHostList && nm.GetMasterServerHostList().Length > 0)
-		{
-			nm.isRefreshingHostList = false;
-			hostList = nm.GetMasterServerHostList();
-		}
+		nm.RefreshHostList ();
+		hostList = nm.GetMasterServerHostList ();
+		if (hostList.Length == 0) {
+						nm.isRefreshingHostList = false;
+				}
+//		if (nm.GetMasterServerHostList ().Length == 0 && !nm.isRefreshingHostList){
+//			nm.RefreshHostList();
+//			hostList = nm.GetMasterServerHostList ();
+//		}
 	}
 }

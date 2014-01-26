@@ -28,7 +28,7 @@ public class KillPlayer : MonoBehaviour {
 */
 	void OnTriggerEnter(Collider player)
 	{
-		if (collider.gameObject.tag == "Player")
+		if (player.gameObject.tag == "Player")
 		{
 			Player lets = player.gameObject.GetComponent<Player>();
 			lets.Kill();
