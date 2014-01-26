@@ -48,11 +48,11 @@ public class RPCHandler : MonoBehaviour {
 	{
 		if (isLeft) {
 			Debug.Log ("Left click at " + worldPos);
-			GameObject.Find("FacebookLike").transform.position = worldPos;
+			GameObject.Find("FacebookLike").transform.position = new Vector3(worldPos.x, worldPos.y, 3);
 		} 
 		else {
 			Debug.Log ("Right click at " + worldPos);
-			GameObject.Find("FacebookLike").transform.position = worldPos;
+			GameObject.Find("FacebookDislike").transform.position = new Vector3(worldPos.x, worldPos.y, 3);
 		}
 
 
