@@ -11,11 +11,11 @@ EditorBuildSettings:
     path: Assets/Scenes/Scene_Lvl1.unity
   - enabled: 1
     path: Assets/Scenes/Scene_Lvl2.unity
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Scene_Lvl3.unity
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Scene_Lvl4.unity
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Scene_Lvl5.unity
   - enabled: 1
     path: Assets/Scenes/Scene_Lvl6.unity
