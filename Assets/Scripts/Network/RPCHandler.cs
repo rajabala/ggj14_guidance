@@ -47,14 +47,12 @@ public class RPCHandler : MonoBehaviour {
 	[RPC] void MouseEffects(Vector3 worldPos, bool isLeft)
 	{
 		if (isLeft) {
-			good.transform.position = worldPos;
-			good.enabled = true;
 			Debug.Log ("Left click at " + worldPos);
+			GameObject.Find("FacebookLike").transform.position = worldPos;
 		} 
 		else {
-			bad.transform.position = worldPos;
-			bad.enabled = true;
 			Debug.Log ("Right click at " + worldPos);
+			GameObject.Find("FacebookLike").transform.position = worldPos;
 		}
 
 
