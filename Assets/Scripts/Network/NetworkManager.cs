@@ -3,14 +3,20 @@ using System.Collections;
 
 public class NetworkManager : MonoBehaviour
 {
+	// statics
+	private static NetworkManager g_nm;
+
+	// members
+	public GameObject playerPrefab;
+	public GUIText infoText = "Welcome";
+
     private const string typeName = "RajaServer";
     private const string gameName = "GuideGame";
 
     private bool isRefreshingHostList = false;
     private HostData[] hostList;
-
-    public GameObject playerPrefab;
-
+	
+	// Monobehavior overrides
     void OnGUI()
     {
         if (!Network.isClient && !Network.isServer)
@@ -32,55 +38,62 @@ public class NetworkManager : MonoBehaviour
         }
     }
 
-    private void StartServer()
-    {
-        Network.InitializeServer(5, 44000, !Network.HavePublicAddress());
-        MasterServer.RegisterHost(typeName, gameName);
-    }
+	void Update()
+	{
+		if (isRefreshingHostList && MasterServer.PollHostList().Length > 0)
+		{
+			isRefreshingHostList = false;
+			hostList = MasterServer.PollHostList();
+		}
+	}
 
-    void OnServerInitialized()
-    {
-        SpawnServerPlayer();
-    }
+	// Server side logic
+	private void StartServer()
+	{
+		Network.InitializeServer(5, 44000, !Network.HavePublicAddress());
+		MasterServer.RegisterHost(typeName, gameName);
+	}
+	
+	void OnServerInitialized() // Network override.
+	{
 
+	}
 
-    void Update()
-    {
-        if (isRefreshingHostList && MasterServer.PollHostList().Length > 0)
-        {
-            isRefreshingHostList = false;
-            hostList = MasterServer.PollHostList();
-        }
-    }
+	void OnPlayerConnected() { // Network override.
+		SpawnServerPlayer();
+	}
 
-    private void RefreshHostList()
-    {
-        if (!isRefreshingHostList)
-        {
-            isRefreshingHostList = true;
-            MasterServer.RequestHostList(typeName);
-        }
-    }
+	void OnPlayerDisconnected() { // Network override.
 
-
-    private void JoinServer(HostData hostData)
-    {
-        Network.Connect(hostData);
-    }
-
-    void OnConnectedToServer()
-    {
-		SpawnClientPlayer();
-    }
-
-
-    private void SpawnClientPlayer()
-    {
-        Network.Instantiate(playerPrefab, new Vector3(5, 3, 5), Quaternion.identity, 0);
-    }
+	}
 
 	private void SpawnServerPlayer() 
 	{
-		Network.Instantiate(playerPrefab, new Vector3(0, 0, 5), Quaternion.identity, 0);
+		Instantiate(playerPrefab, new Vector3(0, 0, 5), Quaternion.identity, 0);
+	}
+
+	// Client side logic
+	private void RefreshHostList()
+	{
+		if (!isRefreshingHostList)
+		{
+			isRefreshingHostList = true;
+			MasterServer.RequestHostList(typeName);
+		}
+	}
+
+	private void JoinServer(HostData hostData)
+	{
+		Network.Connect(hostData);
+	}
+	
+	void OnConnectedToServer()  // Network override.
+	{
+		SpawnClientPlayer();
+	}
+	
+	private void SpawnClientPlayer()
+	{
+		Instantiate(playerPrefab, new Vector3(5, 3, 5), Quaternion.identity, 0);
 	}
 }
