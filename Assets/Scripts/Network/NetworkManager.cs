@@ -4,14 +4,10 @@ using System.Collections;
 public class NetworkManager : MonoBehaviour
 {
 	private static NetworkManager g_Instance;
-
-	// members
-    private const string typeName = "RajaServer";
-    private const string gameName = "GuideGame";
-
-    public bool isRefreshingHostList = false;
-	private bool haveTwoPlayers = false;
-    private HostData[] hostList;
+	private NetworkManager()
+	{
+		PhotonNetwork.ConnectUsingSettings("v1.0");
+	}
 
 	// singleton instance
 	public static NetworkManager Instance{
@@ -24,64 +20,20 @@ public class NetworkManager : MonoBehaviour
 		}
 	}
 
-	// Server side logic
-	public void StartServer()
+	void OnPhotonPlayerConnected(PhotonPlayer player)
 	{
-		Network.InitializeServer(5, 44000, !Network.HavePublicAddress());
-		MasterServer.RegisterHost(typeName, gameName);
-		Debug.Log ("Started server, registered with master server for discovery");
-	}
-	
-	void OnServerInitialized() // Network override.
-	{
-		GlobalPlayer.g_PlayerID = GlobalPlayer.EPlayerId.PlayerOne;
-		Debug.Log ("Server initialized");
-		GlobalPlayer.PrintDetails();
+		if (PhotonNetwork.otherPlayers.Length > 0) {
+			PhotonNetwork.isMessageQueueRunning = false; //Stop the RPC calls when game is loading
+			GlobalPlayer.LoadNextLevel();
+				}
 	}
 
-	void OnPlayerConnected() { // Network override.
-		haveTwoPlayers = true;
-		Debug.Log ("Player 2 has connected. Loading scene...");
-		//DontDestroyOnLoad(this);
-		GlobalPlayer.LoadNextLevel();
-	}
-
-	void OnPlayerDisconnected() { // Network override.
-		haveTwoPlayers = false;
-		Debug.Log ("Player 2 has disconnected. Loading loader scene...");	
-		//DontDestroyOnLoad(this);
+	void OnPhotonPlayerDisconnected(PhotonPlayer player) { // Network override.
 		GlobalPlayer.LoadSceneLoad();
 	}
 
-	// Client side logic
-	public void RefreshHostList()
-	{
-		if (!isRefreshingHostList)
-		{
-			isRefreshingHostList = true;
-			MasterServer.RequestHostList(typeName);
-		}
-	}
-
-	public void JoinServer(HostData hostData)
-	{
-		Network.Connect(hostData);
-		Debug.Log("Attempting to join IP " + hostData.ip[0] + " : " + hostData.port);
-	}
-	
-	void OnConnectedToServer()  // Network override.
-	{
-		GlobalPlayer.g_PlayerID = GlobalPlayer.EPlayerId.PlayerTwo;
-		
-		GlobalPlayer.PrintDetails();
-
-		Debug.Log ("Connected to server, loading level...");
-
-		//DontDestroyOnLoad(this);
-		GlobalPlayer.LoadNextLevel();
-	}
-	
-	public HostData[] GetMasterServerHostList() {
-		return MasterServer.PollHostList();
-	}
+	//Player 1
+	//GlobalPlayer.g_PlayerID = GlobalPlayer.EPlayerId.PlayerOne
+	//Player 2
+	//GlobalPlayer.g_PlayerID = GlobalPlayer.EPlayerId.PlayerTwo;
 }
