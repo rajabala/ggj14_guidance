@@ -9,7 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400000}
   - 114: {fileID: 11400004}
-  - 148: {fileID: 14800000}
+  - 114: {fileID: 11400006}
   m_Layer: 0
   m_Name: GroundCheck
   m_TagString: Untagged
@@ -157,20 +157,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7b3daedfc9554fe686b32e26523e50a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  good: {fileID: 13200000, guid: 9bf6723831b8e49ada7e76efdc9b072e, type: 2}
-  bad: {fileID: 13200000, guid: c7d17a6c0b6aa4064a84d205f53ab0a2, type: 2}
---- !u!148 &14800000
-NetworkView:
+  localPlayerAtExit: 0
+  remotePlayerAtExit: 0
+--- !u!114 &11400006
+MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
-  m_StateSynchronization: 1
-  m_Observed: {fileID: 0}
-  m_ViewID:
-    m_ID: 0
-    m_Type: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  subId: 0
+  ownerId: 0
+  group: 0
+  prefixBackup: -1
+  observed: {fileID: 11400004}
+  synchronization: 3
+  onSerializeTransformOption: 0
+  onSerializeRigidBodyOption: 2
+  instantiationId: 0
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

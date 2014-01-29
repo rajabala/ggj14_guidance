@@ -6,10 +6,12 @@ public class RPCHandler : MonoBehaviour {
 	public bool localPlayerAtExit = false;
 	public bool remotePlayerAtExit = false;
 	private float timeElapsed = 0;
+	private PhotonView _photonView;
 
 	// Use this for initialization
 	void Start () {
 		theSystem = FindObjectOfType<ParticleSystem> ();
+		_photonView = GetComponent<PhotonView> ();
 	}
 	
 	// Update is called once per frame
@@ -18,8 +20,7 @@ public class RPCHandler : MonoBehaviour {
 		timeElapsed += Time.deltaTime;
 
 		if (timeElapsed > 0.2f) {
-			PlayEffectsServerToClient(transform.position);
-			PlayEffectsClientToServer(transform.position);
+			PlayEffectsToTheOther(transform.position);
 			timeElapsed = 0.0f;
 		}
 		MouseEffectsBothWays();
@@ -29,25 +30,26 @@ public class RPCHandler : MonoBehaviour {
 	}
 
 
+	//This doesn't work somehow
+//	void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+//	{
+//		if (stream.isWriting) {
+//						stream.SendNext (transform.position);
+//				} else {
+//			theSystem.transform.position = (Vector3)stream.ReceiveNext();
+//				}
+//	}
 
+	
 	// Smoke trail effect RPC
 	[RPC] void PlayEffects(Vector3 position)
 	{
 		theSystem.transform.position = position;
 	}
 
-	[RPC] void PlayEffectsServerToClient(Vector3 position)
+	void PlayEffectsToTheOther(Vector3 position)
 	{
-		if (GlobalPlayer.g_PlayerID == GlobalPlayer.EPlayerId.PlayerOne) {
-				}
-			//networkView.RPC("PlayEffects", RPCMode.OthersBuffered, transform.position);
-	}
-
-	[RPC] void PlayEffectsClientToServer(Vector3 position)
-	{
-		if (GlobalPlayer.g_PlayerID == GlobalPlayer.EPlayerId.PlayerTwo) {
-				}
-			//networkView.RPC("PlayEffects", RPCMode.OthersBuffered, transform.position);
+		_photonView.RPC("PlayEffects", PhotonTargets.OthersBuffered, transform.position);
 	}
 
 	// Mouse click RPC
@@ -79,7 +81,7 @@ public class RPCHandler : MonoBehaviour {
 			{
 				//Debug.Log("Plane Raycast hit at distance: " + ent);
 				Vector3 hitPoint = ray.GetPoint(ent);
-				//networkView.RPC ("MouseEffects", RPCMode.OthersBuffered, hitPoint, leftMouseDown);
+				_photonView.RPC ("MouseEffects", PhotonTargets.OthersBuffered, hitPoint, leftMouseDown);
 		     }
 		}
 	}
@@ -91,7 +93,7 @@ public class RPCHandler : MonoBehaviour {
 	}
 
 	[RPC] void TellExitStatusToOthers() {
-		//networkView.RPC ("ExitStatus", RPCMode.OthersBuffered, localPlayerAtExit);
+		_photonView.RPC ("ExitStatus", PhotonTargets.OthersBuffered, localPlayerAtExit);
 	}
 	
 	public void PortalExitCallback(bool playerAtExit) 
@@ -104,7 +106,7 @@ public class RPCHandler : MonoBehaviour {
 
 	// Player death RPC
 	public void KillPlayerCallback(Vector3 worldPos) {
-		//networkView.RPC ("DeathEffects", RPCMode.OthersBuffered, worldPos);
+		_photonView.RPC ("DeathEffects", PhotonTargets.OthersBuffered, worldPos);
 	}
 
 	[RPC] void DeathEffects(Vector3 worldPos) {
