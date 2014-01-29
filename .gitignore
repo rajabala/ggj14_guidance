@@ -1,15 +1,8 @@
 ##################
 # Unity ignores:
-#
-# !!! WARNING !!!
-#
-# … you MUST convert Unity to using Metafiles *before* you start using this .gitignore file,
-# or you WILL lose data!
-#
-#####
-#
-# !!! WARNING !!!
-#
+# Version control mode (Edit->ProjectSettings->Editor) has been set to meta files. 
+# All meta data is stored in *.meta files (do NOT ignore them) and not in the Library directory (thus it can be ignored)
+# http://answers.unity3d.com/questions/22604/which-unity-project-files-can-be-ignored-for-versi.html
 # … don’t forget to [git add "*"] (quotes are required!) when adding new files, or git will silently ignore them
 #
 
@@ -17,16 +10,18 @@
 .DS_Store
 *.swp
 *.Trashes
+*.app
 
 # All platforms
 Library
 Temp
+obj
 *.csproj
 *.pidb
 *.unityproj
 *.sln
+*.suo
+*.user
+*.pidb
 *.userprefs
 *.exe
-/asdf_Data
-/obj
-/guidance.app
