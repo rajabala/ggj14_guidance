@@ -30,4 +30,8 @@ MonoBehaviour:
   - ExitStatus
   - TellExitStatusToOthers
   - DeathEffects
+  - Marco
+  - Polo
+  - TaggedPlayer
+  - SetPosition
   DisableAutoOpenWizard: 0

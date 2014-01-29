@@ -3,37 +3,10 @@ using System.Collections;
 
 public class NetworkManager : MonoBehaviour
 {
-	private static NetworkManager g_Instance;
-	private NetworkManager()
+	void OnPhotonPlayerDisconnected(PhotonPlayer player)
 	{
-		PhotonNetwork.ConnectUsingSettings("v1.0");
-	}
-
-	// singleton instance
-	public static NetworkManager Instance{
-		get{
-			if(g_Instance == null)
-			{
-				g_Instance = new NetworkManager();
-			}
-			return g_Instance;
-		}
-	}
-
-	void OnPhotonPlayerConnected(PhotonPlayer player)
-	{
-		if (PhotonNetwork.otherPlayers.Length > 0) {
-			PhotonNetwork.isMessageQueueRunning = false; //Stop the RPC calls when game is loading
-			GlobalPlayer.LoadNextLevel();
-				}
-	}
-
-	void OnPhotonPlayerDisconnected(PhotonPlayer player) { // Network override.
+		Debug.Log("The other player disconnected");
+		GlobalPlayer.currentLevel = 0;
 		GlobalPlayer.LoadSceneLoad();
 	}
-
-	//Player 1
-	//GlobalPlayer.g_PlayerID = GlobalPlayer.EPlayerId.PlayerOne
-	//Player 2
-	//GlobalPlayer.g_PlayerID = GlobalPlayer.EPlayerId.PlayerTwo;
 }

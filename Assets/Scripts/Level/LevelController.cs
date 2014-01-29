@@ -3,15 +3,10 @@ using System.Collections;
 
 public class LevelController : MonoBehaviour 
 {
-	
-
 	public GameObject localPlayer;
 //	private Player playerOneStats;
-//	private Player playerTwoStats;
-
-
+//	private Player playerTwoStats;	
 	public Transform spawnPoint;
-
 
 	void Awake() {
 		GlobalPlayer.PrintDetails();
@@ -26,5 +21,10 @@ public class LevelController : MonoBehaviour
 			if (go != null ) spawnPoint = go.transform;
 		}
 		Instantiate(localPlayer, spawnPoint.position, Quaternion.identity);
+	}
+
+	void Start(){
+		//Level is loaded, resume the message queue
+		PhotonNetwork.isMessageQueueRunning = true;
 	}
 }

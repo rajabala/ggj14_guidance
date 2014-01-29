@@ -38,14 +38,16 @@ public class RPCHandler : MonoBehaviour {
 
 	[RPC] void PlayEffectsServerToClient(Vector3 position)
 	{
-		if (GlobalPlayer.g_PlayerID == GlobalPlayer.EPlayerId.PlayerOne)
-			networkView.RPC("PlayEffects", RPCMode.OthersBuffered, transform.position);
+		if (GlobalPlayer.g_PlayerID == GlobalPlayer.EPlayerId.PlayerOne) {
+				}
+			//networkView.RPC("PlayEffects", RPCMode.OthersBuffered, transform.position);
 	}
 
 	[RPC] void PlayEffectsClientToServer(Vector3 position)
 	{
-		if (GlobalPlayer.g_PlayerID == GlobalPlayer.EPlayerId.PlayerTwo)
-			networkView.RPC("PlayEffects", RPCMode.OthersBuffered, transform.position);
+		if (GlobalPlayer.g_PlayerID == GlobalPlayer.EPlayerId.PlayerTwo) {
+				}
+			//networkView.RPC("PlayEffects", RPCMode.OthersBuffered, transform.position);
 	}
 
 	// Mouse click RPC
@@ -77,7 +79,7 @@ public class RPCHandler : MonoBehaviour {
 			{
 				//Debug.Log("Plane Raycast hit at distance: " + ent);
 				Vector3 hitPoint = ray.GetPoint(ent);
-				networkView.RPC ("MouseEffects", RPCMode.OthersBuffered, hitPoint, leftMouseDown);
+				//networkView.RPC ("MouseEffects", RPCMode.OthersBuffered, hitPoint, leftMouseDown);
 		     }
 		}
 	}
@@ -89,7 +91,7 @@ public class RPCHandler : MonoBehaviour {
 	}
 
 	[RPC] void TellExitStatusToOthers() {
-		networkView.RPC ("ExitStatus", RPCMode.OthersBuffered, localPlayerAtExit);
+		//networkView.RPC ("ExitStatus", RPCMode.OthersBuffered, localPlayerAtExit);
 	}
 	
 	public void PortalExitCallback(bool playerAtExit) 
@@ -102,7 +104,7 @@ public class RPCHandler : MonoBehaviour {
 
 	// Player death RPC
 	public void KillPlayerCallback(Vector3 worldPos) {
-		networkView.RPC ("DeathEffects", RPCMode.OthersBuffered, worldPos);
+		//networkView.RPC ("DeathEffects", RPCMode.OthersBuffered, worldPos);
 	}
 
 	[RPC] void DeathEffects(Vector3 worldPos) {
