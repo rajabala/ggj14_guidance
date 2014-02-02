@@ -60,6 +60,7 @@ public class RPCHandler : MonoBehaviour {
 		if (isLeft) {
 			//Debug.Log ("Left click at " + worldPos);
 			//GameObject.Find("FacebookLike").SendMessage("ShowIcon", new Vector3(worldPos.x, worldPos.y, 3));
+			//GameObject.Find("FacebookLike(Clone)").SendMessage("ShowIcon", new Vector3(worldPos.x, worldPos.y, 3));
 
 			// Let's make it cooler! If mouse click is near an object that is invisible to the player,
 			// reveal a small radius around it
@@ -75,17 +76,18 @@ public class RPCHandler : MonoBehaviour {
 		} 
 		else {
 			//Debug.Log ("Right click at " + worldPos);
-			GameObject.Find("FacebookDislike").SendMessage("ShowIcon", new Vector3(worldPos.x, worldPos.y, 3));
+			GameObject.Find("FacebookDislike(Clone)").SendMessage("ShowIcon", new Vector3(worldPos.x, worldPos.y, 3));
 		}
 	}
 	
-	[RPC] void MouseEffectsBothWays()
+	void MouseEffectsBothWays()
 	{
 		// Right click doesn't bode well with browsers. Make it Ctrl + leftclick
 		bool leftMouseDown = Input.GetMouseButtonDown (0); 
 
 		if (leftMouseDown) {
-			bool isCtrlDown = Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.RightControl);
+			bool isRightMouse = Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl);
+			Debug.Log (isRightMouse);
 
 			Plane intersectPlane = new Plane(new Vector3(0,0,-1), new Vector3(0,0, 5));
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -95,10 +97,15 @@ public class RPCHandler : MonoBehaviour {
 			{
 				//Debug.Log("Plane Raycast hit at distance: " + ent);
 				Vector3 hitPoint = ray.GetPoint(ent);
-
-				//MouseEffects(hitPoint, leftMouseDown);// TODO: Clean up. For testing w/o n/w, check proximity rendering on self
-
-				_photonView.RPC ("MouseEffects", PhotonTargets.OthersBuffered, hitPoint, isCtrlDown);
+				if(!isRightMouse)
+				{
+					GameObject.Find("FacebookLikeOthers(Clone)").SendMessage("ShowIcon", new Vector3(hitPoint.x, hitPoint.y, 3));
+                }
+                else
+                {
+                    GameObject.Find("FacebookDislikeOthers(Clone)").SendMessage("ShowIcon", new Vector3(hitPoint.x, hitPoint.y, 3));
+                }
+				_photonView.RPC ("MouseEffects", PhotonTargets.OthersBuffered, hitPoint, !isRightMouse);
 		     }
 		}
 	}

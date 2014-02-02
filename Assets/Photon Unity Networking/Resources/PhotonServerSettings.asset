@@ -34,4 +34,5 @@ MonoBehaviour:
   - Polo
   - TaggedPlayer
   - SetPosition
+  - NetworkSwitch
   DisableAutoOpenWizard: 0
