@@ -5,6 +5,7 @@ public class RPCHandler : MonoBehaviour {
 	ParticleSystem theSystem;
 	public bool localPlayerAtExit = false;
 	public bool remotePlayerAtExit = false;
+	public float mouseRadius  = 3.0f;
 	private float timeElapsed = 0;
 	private PhotonView _photonView;
 
@@ -55,24 +56,37 @@ public class RPCHandler : MonoBehaviour {
 	// Mouse click RPC
 	[RPC] void MouseEffects(Vector3 worldPos, bool isLeft)
 	{
+		// Game jam effect - display Facebook like/dislike
 		if (isLeft) {
 			//Debug.Log ("Left click at " + worldPos);
-			GameObject.Find("FacebookLike").SendMessage("ShowIcon", new Vector3(worldPos.x, worldPos.y, 3));
+			//GameObject.Find("FacebookLike").SendMessage("ShowIcon", new Vector3(worldPos.x, worldPos.y, 3));
+
+			// Let's make it cooler! If mouse click is near an object that is invisible to the player,
+			// reveal a small radius around it
+			Collider[] hitColliders = Physics.OverlapSphere(worldPos, mouseRadius);
+			int i = 0;
+			while (i < hitColliders.Length) {
+				ProximityBehavior pb = hitColliders[i].GetComponent<ProximityBehavior>();
+				if (pb != null)
+					pb.SendMessage("MouseClickCallback", worldPos);
+				
+				i++;
+			}
 		} 
 		else {
 			//Debug.Log ("Right click at " + worldPos);
 			GameObject.Find("FacebookDislike").SendMessage("ShowIcon", new Vector3(worldPos.x, worldPos.y, 3));
 		}
-
-
 	}
 	
 	[RPC] void MouseEffectsBothWays()
 	{
-		 bool leftMouseDown = Input.GetMouseButtonDown (0) ,
-					rightMouseDown= Input.GetMouseButtonDown (1); 
+		// Right click doesn't bode well with browsers. Make it Ctrl + leftclick
+		bool leftMouseDown = Input.GetMouseButtonDown (0); 
 
-		if (leftMouseDown || rightMouseDown) {
+		if (leftMouseDown) {
+			bool isCtrlDown = Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.RightControl);
+
 			Plane intersectPlane = new Plane(new Vector3(0,0,-1), new Vector3(0,0, 5));
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			float ent = 100.0f;
@@ -81,7 +95,10 @@ public class RPCHandler : MonoBehaviour {
 			{
 				//Debug.Log("Plane Raycast hit at distance: " + ent);
 				Vector3 hitPoint = ray.GetPoint(ent);
-				_photonView.RPC ("MouseEffects", PhotonTargets.OthersBuffered, hitPoint, leftMouseDown);
+
+				//MouseEffects(hitPoint, leftMouseDown);// TODO: Clean up. For testing w/o n/w, check proximity rendering on self
+
+				_photonView.RPC ("MouseEffects", PhotonTargets.OthersBuffered, hitPoint, isCtrlDown);
 		     }
 		}
 	}
