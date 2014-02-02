@@ -57,17 +57,17 @@ public class RPCHandler : MonoBehaviour {
 	{
 		if (isLeft) {
 			//Debug.Log ("Left click at " + worldPos);
-			GameObject.Find("FacebookLike").SendMessage("ShowIcon", new Vector3(worldPos.x, worldPos.y, 3));
+			GameObject.Find("FacebookLike(Clone)").SendMessage("ShowIcon", new Vector3(worldPos.x, worldPos.y, 3));
 		} 
 		else {
 			//Debug.Log ("Right click at " + worldPos);
-			GameObject.Find("FacebookDislike").SendMessage("ShowIcon", new Vector3(worldPos.x, worldPos.y, 3));
+			GameObject.Find("FacebookDislike(Clone)").SendMessage("ShowIcon", new Vector3(worldPos.x, worldPos.y, 3));
 		}
 
 
 	}
 	
-	[RPC] void MouseEffectsBothWays()
+	void MouseEffectsBothWays()
 	{
 		 bool leftMouseDown = Input.GetMouseButtonDown (0) ,
 					rightMouseDown= Input.GetMouseButtonDown (1); 
@@ -81,6 +81,14 @@ public class RPCHandler : MonoBehaviour {
 			{
 				//Debug.Log("Plane Raycast hit at distance: " + ent);
 				Vector3 hitPoint = ray.GetPoint(ent);
+                if(leftMouseDown)
+                {
+                    GameObject.Find("FacebookLikeOthers(Clone)").SendMessage("ShowIcon", new Vector3(hitPoint.x, hitPoint.y, 3));
+                }
+                else
+                {
+                    GameObject.Find("FacebookDislikeOthers(Clone)").SendMessage("ShowIcon", new Vector3(hitPoint.x, hitPoint.y, 3));
+                }
 				_photonView.RPC ("MouseEffects", PhotonTargets.OthersBuffered, hitPoint, leftMouseDown);
 		     }
 		}

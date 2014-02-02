@@ -9,9 +9,12 @@ public class Switch : MonoBehaviour, ISwitchable {
 	private ITriggerable triggerScriptInTarget;
 	private bool activated;
 	private float cooldownTime;
+    public int switchID = 0;
+    private PhotonView _photonView;
 
 	void Start () 
 	{
+        _photonView = GetComponent<PhotonView>();
 		//Gets the script that has Trigger Method in target object
 		triggerScriptInTarget = (ITriggerable)targetToActivate.GetComponent(typeof(ITriggerable));
 
@@ -40,10 +43,24 @@ public class Switch : MonoBehaviour, ISwitchable {
 
 	}
 
-
 	public void ActivateSwitch()
 	{
 		//animation goes here
 		triggerScriptInTarget.Trigger();
+        PlayEffectsToTheOther();
 	}
+
+
+    [RPC] void NetworkSwitch(int id)
+    {
+        if (id == switchID)
+        {
+            ActivateSwitch();
+        }
+    }
+    
+    void PlayEffectsToTheOther()
+    {
+        _photonView.RPC("NetworkSwitch", PhotonTargets.OthersBuffered, switchID);
+    }
 }
