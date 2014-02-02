@@ -44,7 +44,6 @@ Renderer:
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
   - {fileID: 2100000, guid: 0986bf2f02747db4dad1dd3eeacf96f5, type: 2}
-  - {fileID: 2100000, guid: 043b716d360457442b0886511ff8102b, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -96,7 +95,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeLength: 3
-  fadeStart: -5
+  matMouseReveal: {fileID: 2100000, guid: 043b716d360457442b0886511ff8102b, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
