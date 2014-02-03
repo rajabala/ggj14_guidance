@@ -59,8 +59,8 @@ public class RPCHandler : MonoBehaviour {
 		// Game jam effect - display Facebook like/dislike
 		if (isLeft) {
 			//Debug.Log ("Left click at " + worldPos);
-			//GameObject.Find("FacebookLike").SendMessage("ShowIcon", new Vector3(worldPos.x, worldPos.y, 3));
-			//GameObject.Find("FacebookLike(Clone)").SendMessage("ShowIcon", new Vector3(worldPos.x, worldPos.y, 3));
+		    //GameObject.Find("FacebookLike").SendMessage("ShowIcon", new Vector3(worldPos.x, worldPos.y, 3));
+			GameObject.Find("FacebookLike(Clone)").SendMessage("ShowIcon", new Vector3(worldPos.x, worldPos.y, 3));
 
 			// Let's make it cooler! If mouse click is near an object that is invisible to the player,
 			// reveal a small radius around it
