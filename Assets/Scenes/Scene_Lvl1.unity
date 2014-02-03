@@ -172,7 +172,6 @@ Renderer:
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
   - {fileID: 2100000, guid: 0986bf2f02747db4dad1dd3eeacf96f5, type: 2}
-  - {fileID: 2100000, guid: 043b716d360457442b0886511ff8102b, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -226,7 +225,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeLength: 3
-  fadeStart: -5
+  matMouseReveal: {fileID: 2100000, guid: 043b716d360457442b0886511ff8102b, type: 2}
 --- !u!1001 &81603018
 Prefab:
   m_ObjectHideFlags: 0
@@ -295,6 +294,7 @@ GameObject:
   - 65: {fileID: 224117164}
   - 23: {fileID: 224117163}
   - 114: {fileID: 224117162}
+  - 114: {fileID: 224117167}
   m_Layer: 8
   m_Name: Platform0
   m_TagString: Level
@@ -369,6 +369,20 @@ Transform:
   m_LocalScale: {x: 1, y: .600000024, z: 2.5}
   m_Children: []
   m_Father: {fileID: 1716434843}
+--- !u!114 &224117167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400002, guid: e00df0a4ef007014db00fad5c28bb577,
+    type: 2}
+  m_PrefabInternal: {fileID: 961986750}
+  m_GameObject: {fileID: 224117161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee612ff76f11e2748a8731d17183fc25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeLength: 3
+  matMouseReveal: {fileID: 2100000, guid: 043b716d360457442b0886511ff8102b, type: 2}
 --- !u!1 &224155483
 GameObject:
   m_ObjectHideFlags: 0
@@ -728,6 +742,7 @@ GameObject:
   - 65: {fileID: 381443975}
   - 23: {fileID: 381443974}
   - 114: {fileID: 381443973}
+  - 114: {fileID: 381443978}
   m_Layer: 8
   m_Name: Platform0
   m_TagString: Level
@@ -802,6 +817,20 @@ Transform:
   m_LocalScale: {x: 3, y: .600000024, z: 2.5}
   m_Children: []
   m_Father: {fileID: 1716434843}
+--- !u!114 &381443978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400002, guid: e00df0a4ef007014db00fad5c28bb577,
+    type: 2}
+  m_PrefabInternal: {fileID: 626871623}
+  m_GameObject: {fileID: 381443972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee612ff76f11e2748a8731d17183fc25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeLength: 3
+  matMouseReveal: {fileID: 2100000, guid: 043b716d360457442b0886511ff8102b, type: 2}
 --- !u!1 &402637421
 GameObject:
   m_ObjectHideFlags: 0
@@ -814,6 +843,7 @@ GameObject:
   - 65: {fileID: 402637424}
   - 23: {fileID: 402637423}
   - 114: {fileID: 402637422}
+  - 114: {fileID: 402637427}
   m_Layer: 8
   m_Name: Platform0
   m_TagString: Level
@@ -888,6 +918,20 @@ Transform:
   m_LocalScale: {x: 4, y: .600000024, z: 2.5}
   m_Children: []
   m_Father: {fileID: 1716434843}
+--- !u!114 &402637427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400002, guid: e00df0a4ef007014db00fad5c28bb577,
+    type: 2}
+  m_PrefabInternal: {fileID: 228759285}
+  m_GameObject: {fileID: 402637421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee612ff76f11e2748a8731d17183fc25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeLength: 3
+  matMouseReveal: {fileID: 2100000, guid: 043b716d360457442b0886511ff8102b, type: 2}
 --- !u!1 &425389911
 GameObject:
   m_ObjectHideFlags: 0
@@ -900,6 +944,7 @@ GameObject:
   - 65: {fileID: 425389914}
   - 23: {fileID: 425389913}
   - 114: {fileID: 425389912}
+  - 114: {fileID: 425389917}
   m_Layer: 8
   m_Name: Platform0
   m_TagString: Level
@@ -974,6 +1019,20 @@ Transform:
   m_LocalScale: {x: 2, y: .600000024, z: 2.5}
   m_Children: []
   m_Father: {fileID: 1716434843}
+--- !u!114 &425389917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400002, guid: e00df0a4ef007014db00fad5c28bb577,
+    type: 2}
+  m_PrefabInternal: {fileID: 1509461082}
+  m_GameObject: {fileID: 425389911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee612ff76f11e2748a8731d17183fc25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeLength: 3
+  matMouseReveal: {fileID: 2100000, guid: 043b716d360457442b0886511ff8102b, type: 2}
 --- !u!1001 &466335244
 Prefab:
   m_ObjectHideFlags: 0
@@ -1156,7 +1215,6 @@ Renderer:
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
   - {fileID: 2100000, guid: 0986bf2f02747db4dad1dd3eeacf96f5, type: 2}
-  - {fileID: 2100000, guid: 043b716d360457442b0886511ff8102b, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -1210,7 +1268,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeLength: 3
-  fadeStart: -5
+  matMouseReveal: {fileID: 2100000, guid: 043b716d360457442b0886511ff8102b, type: 2}
 --- !u!1001 &626871623
 Prefab:
   m_ObjectHideFlags: 0
@@ -1408,7 +1466,6 @@ Renderer:
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
   - {fileID: 2100000, guid: 0986bf2f02747db4dad1dd3eeacf96f5, type: 2}
-  - {fileID: 2100000, guid: 043b716d360457442b0886511ff8102b, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -1462,7 +1519,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeLength: 3
-  fadeStart: -5
+  matMouseReveal: {fileID: 2100000, guid: 043b716d360457442b0886511ff8102b, type: 2}
 --- !u!1 &642475597
 GameObject:
   m_ObjectHideFlags: 0
@@ -1475,6 +1532,7 @@ GameObject:
   - 65: {fileID: 642475600}
   - 23: {fileID: 642475599}
   - 114: {fileID: 642475598}
+  - 114: {fileID: 642475603}
   m_Layer: 8
   m_Name: Platform0
   m_TagString: Level
@@ -1549,6 +1607,20 @@ Transform:
   m_LocalScale: {x: 1, y: .600000024, z: 2.5}
   m_Children: []
   m_Father: {fileID: 1716434843}
+--- !u!114 &642475603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400002, guid: e00df0a4ef007014db00fad5c28bb577,
+    type: 2}
+  m_PrefabInternal: {fileID: 466335244}
+  m_GameObject: {fileID: 642475597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee612ff76f11e2748a8731d17183fc25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeLength: 3
+  matMouseReveal: {fileID: 2100000, guid: 043b716d360457442b0886511ff8102b, type: 2}
 --- !u!1 &654477552
 GameObject:
   m_ObjectHideFlags: 0
@@ -2924,7 +2996,6 @@ Renderer:
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
   - {fileID: 2100000, guid: 0986bf2f02747db4dad1dd3eeacf96f5, type: 2}
-  - {fileID: 2100000, guid: 043b716d360457442b0886511ff8102b, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -2978,7 +3049,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeLength: 3
-  fadeStart: -5
+  matMouseReveal: {fileID: 2100000, guid: 043b716d360457442b0886511ff8102b, type: 2}
 --- !u!1001 &777818857
 Prefab:
   m_ObjectHideFlags: 0
@@ -3449,7 +3520,6 @@ Renderer:
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
   - {fileID: 2100000, guid: 0986bf2f02747db4dad1dd3eeacf96f5, type: 2}
-  - {fileID: 2100000, guid: 043b716d360457442b0886511ff8102b, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -3503,7 +3573,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeLength: 3
-  fadeStart: -5
+  matMouseReveal: {fileID: 2100000, guid: 043b716d360457442b0886511ff8102b, type: 2}
 --- !u!1 &1102728728
 GameObject:
   m_ObjectHideFlags: 0
@@ -3839,7 +3909,6 @@ Renderer:
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
   - {fileID: 2100000, guid: 0986bf2f02747db4dad1dd3eeacf96f5, type: 2}
-  - {fileID: 2100000, guid: 043b716d360457442b0886511ff8102b, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -3882,7 +3951,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeLength: 3
-  fadeStart: -5
+  matMouseReveal: {fileID: 2100000, guid: 043b716d360457442b0886511ff8102b, type: 2}
 --- !u!1 &1219735212
 GameObject:
   m_ObjectHideFlags: 0
@@ -4024,6 +4093,7 @@ GameObject:
   - 65: {fileID: 1303943060}
   - 23: {fileID: 1303943059}
   - 114: {fileID: 1303943058}
+  - 114: {fileID: 1303943062}
   m_Layer: 8
   m_Name: Platform0
   m_TagString: Level
@@ -4098,6 +4168,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 1773912196}
   m_GameObject: {fileID: 1303943056}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1303943062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400002, guid: e00df0a4ef007014db00fad5c28bb577,
+    type: 2}
+  m_PrefabInternal: {fileID: 1773912196}
+  m_GameObject: {fileID: 1303943056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee612ff76f11e2748a8731d17183fc25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeLength: 3
+  matMouseReveal: {fileID: 2100000, guid: 043b716d360457442b0886511ff8102b, type: 2}
 --- !u!1 &1345905105
 GameObject:
   m_ObjectHideFlags: 0
@@ -4110,6 +4194,7 @@ GameObject:
   - 65: {fileID: 1345905108}
   - 23: {fileID: 1345905107}
   - 114: {fileID: 1345905106}
+  - 114: {fileID: 1345905111}
   m_Layer: 8
   m_Name: Platform0
   m_TagString: Level
@@ -4184,6 +4269,20 @@ Transform:
   m_LocalScale: {x: 3, y: .600000024, z: 2.5}
   m_Children: []
   m_Father: {fileID: 1716434843}
+--- !u!114 &1345905111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400002, guid: e00df0a4ef007014db00fad5c28bb577,
+    type: 2}
+  m_PrefabInternal: {fileID: 1593426952}
+  m_GameObject: {fileID: 1345905105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee612ff76f11e2748a8731d17183fc25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeLength: 3
+  matMouseReveal: {fileID: 2100000, guid: 043b716d360457442b0886511ff8102b, type: 2}
 --- !u!1001 &1351282345
 Prefab:
   m_ObjectHideFlags: 0
@@ -4289,6 +4388,7 @@ GameObject:
   - 65: {fileID: 1389098617}
   - 23: {fileID: 1389098616}
   - 114: {fileID: 1389098615}
+  - 114: {fileID: 1389098620}
   m_Layer: 8
   m_Name: Platform0
   m_TagString: Level
@@ -4363,6 +4463,20 @@ Transform:
   m_LocalScale: {x: 2, y: .600000024, z: 2.5}
   m_Children: []
   m_Father: {fileID: 1716434843}
+--- !u!114 &1389098620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400002, guid: e00df0a4ef007014db00fad5c28bb577,
+    type: 2}
+  m_PrefabInternal: {fileID: 1751196223}
+  m_GameObject: {fileID: 1389098614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee612ff76f11e2748a8731d17183fc25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeLength: 3
+  matMouseReveal: {fileID: 2100000, guid: 043b716d360457442b0886511ff8102b, type: 2}
 --- !u!1 &1422201021
 GameObject:
   m_ObjectHideFlags: 0
@@ -4763,7 +4877,6 @@ Renderer:
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
   - {fileID: 2100000, guid: 0986bf2f02747db4dad1dd3eeacf96f5, type: 2}
-  - {fileID: 2100000, guid: 043b716d360457442b0886511ff8102b, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -4806,7 +4919,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeLength: 3
-  fadeStart: -5
+  matMouseReveal: {fileID: 2100000, guid: 043b716d360457442b0886511ff8102b, type: 2}
 --- !u!1 &1716434842
 GameObject:
   m_ObjectHideFlags: 0
@@ -4840,14 +4953,14 @@ Transform:
   - {fileID: 1345905110}
   - {fileID: 1389098619}
   - {fileID: 1303943057}
-  - {fileID: 1100135128}
-  - {fileID: 637470453}
-  - {fileID: 772284456}
-  - {fileID: 67103689}
-  - {fileID: 1632053398}
-  - {fileID: 544634746}
   - {fileID: 2055289383}
   - {fileID: 1213787038}
+  - {fileID: 544634746}
+  - {fileID: 1632053398}
+  - {fileID: 772284456}
+  - {fileID: 637470453}
+  - {fileID: 1100135128}
+  - {fileID: 67103689}
   - {fileID: 1607480498}
   - {fileID: 2123931267}
   - {fileID: 654477553}
@@ -5426,7 +5539,6 @@ Renderer:
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
   - {fileID: 2100000, guid: 0986bf2f02747db4dad1dd3eeacf96f5, type: 2}
-  - {fileID: 2100000, guid: 043b716d360457442b0886511ff8102b, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -5480,7 +5592,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeLength: 3
-  fadeStart: -5
+  matMouseReveal: {fileID: 2100000, guid: 043b716d360457442b0886511ff8102b, type: 2}
 --- !u!1 &2076422330
 GameObject:
   m_ObjectHideFlags: 0

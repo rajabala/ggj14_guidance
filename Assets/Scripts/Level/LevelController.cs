@@ -22,6 +22,7 @@ public class LevelController : MonoBehaviour
 		}
 		else if (GlobalPlayer.g_PlayerID == GlobalPlayer.EPlayerId.PlayerTwo) {
 			GameObject go = GameObject.Find("StartPlayerTwo/SpawnPoint"); 
+
 			if (go != null ) spawnPoint = go.transform;
 		}
 		Instantiate(localPlayer, spawnPoint.position, Quaternion.identity);

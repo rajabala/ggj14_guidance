@@ -350,7 +350,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetToActivate: {fileID: 528917620}
   twoWay: 0
-  switchID: 0
+  switchID: 1
 --- !u!114 &175981016
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -810,10 +810,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   localPlayer: {fileID: 100002, guid: 6b9bef1a0d5c443c7a861d4ed66c8c62, type: 2}
   spawnPoint: {fileID: 1531346956}
-  facebookLike: {fileID: 0}
-  facebookDislike: {fileID: 0}
-  facebookLikeOthers: {fileID: 0}
-  facebookDislikeOthers: {fileID: 0}
+  facebookLike: {fileID: 100000, guid: 867b650e23b58bb46ad41523975e7837, type: 2}
+  facebookDislike: {fileID: 100000, guid: 7fd3531e82a0e64418ba60e91de32fe4, type: 2}
+  facebookLikeOthers: {fileID: 100000, guid: 3a9b3d911e782a444bc710bab15217cf, type: 2}
+  facebookDislikeOthers: {fileID: 100000, guid: e199c86ce8d70af43b3d5f7462b9185e,
+    type: 2}
 --- !u!1 &525024187
 GameObject:
   m_ObjectHideFlags: 0
@@ -1156,6 +1157,10 @@ Prefab:
       propertyPath: subId
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: ca7fb686ef62db64e915dc4d5de98541, type: 2}
+      propertyPath: switchID
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ca7fb686ef62db64e915dc4d5de98541, type: 2}
   m_RootGameObject: {fileID: 859226679}
@@ -1173,6 +1178,7 @@ GameObject:
   - 65: {fileID: 668976257}
   - 23: {fileID: 668976256}
   - 114: {fileID: 668976255}
+  - 114: {fileID: 668976260}
   m_Layer: 8
   m_Name: Platform0
   m_TagString: Level
@@ -1247,6 +1253,20 @@ Transform:
   m_LocalScale: {x: 2, y: 1, z: 2.5}
   m_Children: []
   m_Father: {fileID: 974184159}
+--- !u!114 &668976260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400002, guid: e00df0a4ef007014db00fad5c28bb577,
+    type: 2}
+  m_PrefabInternal: {fileID: 1762050137}
+  m_GameObject: {fileID: 668976254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee612ff76f11e2748a8731d17183fc25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeLength: 3
+  matMouseReveal: {fileID: 2100000, guid: 043b716d360457442b0886511ff8102b, type: 2}
 --- !u!1001 &677322125
 Prefab:
   m_ObjectHideFlags: 0
@@ -1516,6 +1536,10 @@ Prefab:
     - target: {fileID: 11400006, guid: ca7fb686ef62db64e915dc4d5de98541, type: 2}
       propertyPath: subId
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: ca7fb686ef62db64e915dc4d5de98541, type: 2}
+      propertyPath: switchID
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ca7fb686ef62db64e915dc4d5de98541, type: 2}
@@ -3513,6 +3537,22 @@ Prefab:
       propertyPath: m_LocalPosition.y
       value: 13.6521606
       objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: fa74e8ae474a68742b98c66ab854dd6d, type: 2}
+      propertyPath: facebookLike
+      value: 
+      objectReference: {fileID: 100000, guid: 867b650e23b58bb46ad41523975e7837, type: 2}
+    - target: {fileID: 11400002, guid: fa74e8ae474a68742b98c66ab854dd6d, type: 2}
+      propertyPath: facebookDislike
+      value: 
+      objectReference: {fileID: 100000, guid: 7fd3531e82a0e64418ba60e91de32fe4, type: 2}
+    - target: {fileID: 11400002, guid: fa74e8ae474a68742b98c66ab854dd6d, type: 2}
+      propertyPath: facebookLikeOthers
+      value: 
+      objectReference: {fileID: 100000, guid: 3a9b3d911e782a444bc710bab15217cf, type: 2}
+    - target: {fileID: 11400002, guid: fa74e8ae474a68742b98c66ab854dd6d, type: 2}
+      propertyPath: facebookDislikeOthers
+      value: 
+      objectReference: {fileID: 100000, guid: e199c86ce8d70af43b3d5f7462b9185e, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fa74e8ae474a68742b98c66ab854dd6d, type: 2}
   m_RootGameObject: {fileID: 483944228}
@@ -3583,6 +3623,7 @@ GameObject:
   - 65: {fileID: 1565746004}
   - 23: {fileID: 1565746003}
   - 114: {fileID: 1565746002}
+  - 114: {fileID: 1565746007}
   m_Layer: 8
   m_Name: Platform1
   m_TagString: Level
@@ -3657,6 +3698,20 @@ Transform:
   m_LocalScale: {x: 2, y: 1, z: 2.5}
   m_Children: []
   m_Father: {fileID: 974184159}
+--- !u!114 &1565746007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400002, guid: 0f371418a5fdc154dba2cc1653e4f696,
+    type: 2}
+  m_PrefabInternal: {fileID: 1650975076}
+  m_GameObject: {fileID: 1565746001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee612ff76f11e2748a8731d17183fc25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeLength: 3
+  matMouseReveal: {fileID: 2100000, guid: 043b716d360457442b0886511ff8102b, type: 2}
 --- !u!1 &1582484684
 GameObject:
   m_ObjectHideFlags: 0
@@ -3790,7 +3845,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetToActivate: {fileID: 528917620}
   twoWay: 0
-  switchID: 0
+  switchID: 3
 --- !u!114 &1588901151
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4166,7 +4221,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetToActivate: {fileID: 1922793956}
   twoWay: 0
-  switchID: 0
+  switchID: 2
 --- !u!114 &1745591626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4362,6 +4417,10 @@ Prefab:
     - target: {fileID: 11400006, guid: ca7fb686ef62db64e915dc4d5de98541, type: 2}
       propertyPath: subId
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: ca7fb686ef62db64e915dc4d5de98541, type: 2}
+      propertyPath: switchID
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ca7fb686ef62db64e915dc4d5de98541, type: 2}

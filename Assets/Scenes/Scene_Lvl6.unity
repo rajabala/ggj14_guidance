@@ -86,6 +86,7 @@ GameObject:
   - 65: {fileID: 21091500}
   - 23: {fileID: 21091499}
   - 114: {fileID: 21091498}
+  - 114: {fileID: 21091503}
   m_Layer: 8
   m_Name: Platform1
   m_TagString: Level
@@ -160,6 +161,20 @@ Transform:
   m_LocalScale: {x: 1.5, y: 1, z: 2.5}
   m_Children: []
   m_Father: {fileID: 636385676}
+--- !u!114 &21091503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400002, guid: 0f371418a5fdc154dba2cc1653e4f696,
+    type: 2}
+  m_PrefabInternal: {fileID: 1328505081}
+  m_GameObject: {fileID: 21091497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee612ff76f11e2748a8731d17183fc25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeLength: 3
+  matMouseReveal: {fileID: 2100000, guid: 043b716d360457442b0886511ff8102b, type: 2}
 --- !u!1 &59722846
 GameObject:
   m_ObjectHideFlags: 0
@@ -172,6 +187,7 @@ GameObject:
   - 65: {fileID: 59722850}
   - 23: {fileID: 59722849}
   - 114: {fileID: 59722848}
+  - 114: {fileID: 59722853}
   - 114: {fileID: 59722847}
   m_Layer: 8
   m_Name: Platform0 destroy
@@ -258,6 +274,20 @@ Transform:
   m_LocalScale: {x: 1, y: 5, z: 2.5}
   m_Children: []
   m_Father: {fileID: 636385676}
+--- !u!114 &59722853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400002, guid: e00df0a4ef007014db00fad5c28bb577,
+    type: 2}
+  m_PrefabInternal: {fileID: 819084536}
+  m_GameObject: {fileID: 59722846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee612ff76f11e2748a8731d17183fc25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeLength: 3
+  matMouseReveal: {fileID: 2100000, guid: 043b716d360457442b0886511ff8102b, type: 2}
 --- !u!1001 &118188678
 Prefab:
   m_ObjectHideFlags: 0
@@ -330,6 +360,7 @@ GameObject:
   - 65: {fileID: 131484117}
   - 23: {fileID: 131484116}
   - 114: {fileID: 131484115}
+  - 114: {fileID: 131484120}
   m_Layer: 8
   m_Name: Platform0
   m_TagString: Level
@@ -404,6 +435,20 @@ Transform:
   m_LocalScale: {x: 4, y: 1, z: 2.5}
   m_Children: []
   m_Father: {fileID: 636385676}
+--- !u!114 &131484120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400002, guid: e00df0a4ef007014db00fad5c28bb577,
+    type: 2}
+  m_PrefabInternal: {fileID: 469237208}
+  m_GameObject: {fileID: 131484114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee612ff76f11e2748a8731d17183fc25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeLength: 3
+  matMouseReveal: {fileID: 2100000, guid: 043b716d360457442b0886511ff8102b, type: 2}
 --- !u!1 &244541671
 GameObject:
   m_ObjectHideFlags: 0
@@ -738,6 +783,7 @@ GameObject:
   - 65: {fileID: 382655028}
   - 23: {fileID: 382655027}
   - 114: {fileID: 382655026}
+  - 114: {fileID: 382655031}
   - 114: {fileID: 382655025}
   m_Layer: 8
   m_Name: Platform1 destroy
@@ -824,6 +870,20 @@ Transform:
   m_LocalScale: {x: 1, y: 5, z: 2.5}
   m_Children: []
   m_Father: {fileID: 636385676}
+--- !u!114 &382655031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400002, guid: 0f371418a5fdc154dba2cc1653e4f696,
+    type: 2}
+  m_PrefabInternal: {fileID: 541689345}
+  m_GameObject: {fileID: 382655024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee612ff76f11e2748a8731d17183fc25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeLength: 3
+  matMouseReveal: {fileID: 2100000, guid: 043b716d360457442b0886511ff8102b, type: 2}
 --- !u!1 &391166103
 GameObject:
   m_ObjectHideFlags: 0
@@ -2523,6 +2583,22 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: e62c985a3f2a51545897e6c36e88206c, type: 2}
+    - target: {fileID: 11400002, guid: fa74e8ae474a68742b98c66ab854dd6d, type: 2}
+      propertyPath: facebookLike
+      value: 
+      objectReference: {fileID: 100000, guid: 867b650e23b58bb46ad41523975e7837, type: 2}
+    - target: {fileID: 11400002, guid: fa74e8ae474a68742b98c66ab854dd6d, type: 2}
+      propertyPath: facebookDislike
+      value: 
+      objectReference: {fileID: 100000, guid: 7fd3531e82a0e64418ba60e91de32fe4, type: 2}
+    - target: {fileID: 11400002, guid: fa74e8ae474a68742b98c66ab854dd6d, type: 2}
+      propertyPath: facebookLikeOthers
+      value: 
+      objectReference: {fileID: 100000, guid: 3a9b3d911e782a444bc710bab15217cf, type: 2}
+    - target: {fileID: 11400002, guid: fa74e8ae474a68742b98c66ab854dd6d, type: 2}
+      propertyPath: facebookDislikeOthers
+      value: 
+      objectReference: {fileID: 100000, guid: e199c86ce8d70af43b3d5f7462b9185e, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fa74e8ae474a68742b98c66ab854dd6d, type: 2}
   m_RootGameObject: {fileID: 1272610307}
@@ -2734,6 +2810,7 @@ GameObject:
   - 65: {fileID: 763104798}
   - 23: {fileID: 763104797}
   - 114: {fileID: 763104796}
+  - 114: {fileID: 763104801}
   m_Layer: 8
   m_Name: Platform0
   m_TagString: Level
@@ -2808,6 +2885,20 @@ Transform:
   m_LocalScale: {x: 3, y: .600000024, z: 2.5}
   m_Children: []
   m_Father: {fileID: 636385676}
+--- !u!114 &763104801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400002, guid: e00df0a4ef007014db00fad5c28bb577,
+    type: 2}
+  m_PrefabInternal: {fileID: 929069035}
+  m_GameObject: {fileID: 763104795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee612ff76f11e2748a8731d17183fc25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeLength: 3
+  matMouseReveal: {fileID: 2100000, guid: 043b716d360457442b0886511ff8102b, type: 2}
 --- !u!1001 &817295473
 Prefab:
   m_ObjectHideFlags: 0
@@ -2990,6 +3081,7 @@ GameObject:
   - 65: {fileID: 860721702}
   - 23: {fileID: 860721701}
   - 114: {fileID: 860721700}
+  - 114: {fileID: 860721705}
   m_Layer: 8
   m_Name: Platform1
   m_TagString: Level
@@ -3064,6 +3156,20 @@ Transform:
   m_LocalScale: {x: 3, y: .600000024, z: 2.5}
   m_Children: []
   m_Father: {fileID: 636385676}
+--- !u!114 &860721705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400002, guid: 0f371418a5fdc154dba2cc1653e4f696,
+    type: 2}
+  m_PrefabInternal: {fileID: 409013589}
+  m_GameObject: {fileID: 860721699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee612ff76f11e2748a8731d17183fc25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeLength: 3
+  matMouseReveal: {fileID: 2100000, guid: 043b716d360457442b0886511ff8102b, type: 2}
 --- !u!1001 &865598006
 Prefab:
   m_ObjectHideFlags: 0
@@ -3352,6 +3458,7 @@ GameObject:
   - 65: {fileID: 912728642}
   - 23: {fileID: 912728641}
   - 114: {fileID: 912728640}
+  - 114: {fileID: 912728645}
   m_Layer: 8
   m_Name: Platform0
   m_TagString: Level
@@ -3426,6 +3533,20 @@ Transform:
   m_LocalScale: {x: 1.5, y: 1, z: 2.5}
   m_Children: []
   m_Father: {fileID: 636385676}
+--- !u!114 &912728645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400002, guid: e00df0a4ef007014db00fad5c28bb577,
+    type: 2}
+  m_PrefabInternal: {fileID: 454190067}
+  m_GameObject: {fileID: 912728639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee612ff76f11e2748a8731d17183fc25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeLength: 3
+  matMouseReveal: {fileID: 2100000, guid: 043b716d360457442b0886511ff8102b, type: 2}
 --- !u!1001 &929069035
 Prefab:
   m_ObjectHideFlags: 0
@@ -3612,6 +3733,7 @@ GameObject:
   - 65: {fileID: 1049070569}
   - 23: {fileID: 1049070568}
   - 114: {fileID: 1049070567}
+  - 114: {fileID: 1049070572}
   m_Layer: 8
   m_Name: Platform1
   m_TagString: Level
@@ -3686,6 +3808,20 @@ Transform:
   m_LocalScale: {x: 4, y: 1, z: 2.5}
   m_Children: []
   m_Father: {fileID: 636385676}
+--- !u!114 &1049070572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400002, guid: 0f371418a5fdc154dba2cc1653e4f696,
+    type: 2}
+  m_PrefabInternal: {fileID: 257146416}
+  m_GameObject: {fileID: 1049070566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee612ff76f11e2748a8731d17183fc25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeLength: 3
+  matMouseReveal: {fileID: 2100000, guid: 043b716d360457442b0886511ff8102b, type: 2}
 --- !u!1 &1134958586
 GameObject:
   m_ObjectHideFlags: 0
@@ -3785,6 +3921,7 @@ GameObject:
   - 65: {fileID: 1169153314}
   - 23: {fileID: 1169153313}
   - 114: {fileID: 1169153312}
+  - 114: {fileID: 1169153317}
   m_Layer: 8
   m_Name: Platform0
   m_TagString: Level
@@ -3859,6 +3996,20 @@ Transform:
   m_LocalScale: {x: 2, y: 1, z: 2.5}
   m_Children: []
   m_Father: {fileID: 636385676}
+--- !u!114 &1169153317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400002, guid: e00df0a4ef007014db00fad5c28bb577,
+    type: 2}
+  m_PrefabInternal: {fileID: 1925473573}
+  m_GameObject: {fileID: 1169153311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee612ff76f11e2748a8731d17183fc25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeLength: 3
+  matMouseReveal: {fileID: 2100000, guid: 043b716d360457442b0886511ff8102b, type: 2}
 --- !u!1001 &1252969166
 Prefab:
   m_ObjectHideFlags: 0
@@ -4047,10 +4198,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   localPlayer: {fileID: 100002, guid: 6b9bef1a0d5c443c7a861d4ed66c8c62, type: 2}
   spawnPoint: {fileID: 1038881981}
-  facebookLike: {fileID: 0}
-  facebookDislike: {fileID: 0}
-  facebookLikeOthers: {fileID: 0}
-  facebookDislikeOthers: {fileID: 0}
+  facebookLike: {fileID: 100000, guid: 867b650e23b58bb46ad41523975e7837, type: 2}
+  facebookDislike: {fileID: 100000, guid: 7fd3531e82a0e64418ba60e91de32fe4, type: 2}
+  facebookLikeOthers: {fileID: 100000, guid: 3a9b3d911e782a444bc710bab15217cf, type: 2}
+  facebookDislikeOthers: {fileID: 100000, guid: e199c86ce8d70af43b3d5f7462b9185e,
+    type: 2}
 --- !u!1001 &1328505081
 Prefab:
   m_ObjectHideFlags: 0
@@ -4977,6 +5129,7 @@ GameObject:
   - 65: {fileID: 1879217316}
   - 23: {fileID: 1879217315}
   - 114: {fileID: 1879217314}
+  - 114: {fileID: 1879217319}
   m_Layer: 8
   m_Name: Platform1
   m_TagString: Level
@@ -5051,6 +5204,20 @@ Transform:
   m_LocalScale: {x: 2, y: 1, z: 2.5}
   m_Children: []
   m_Father: {fileID: 636385676}
+--- !u!114 &1879217319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400002, guid: 0f371418a5fdc154dba2cc1653e4f696,
+    type: 2}
+  m_PrefabInternal: {fileID: 1459179416}
+  m_GameObject: {fileID: 1879217313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee612ff76f11e2748a8731d17183fc25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeLength: 3
+  matMouseReveal: {fileID: 2100000, guid: 043b716d360457442b0886511ff8102b, type: 2}
 --- !u!1 &1886169747
 GameObject:
   m_ObjectHideFlags: 0

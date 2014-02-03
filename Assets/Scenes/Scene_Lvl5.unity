@@ -971,6 +971,22 @@ Prefab:
       propertyPath: m_Intensity
       value: 1.01999998
       objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: fa74e8ae474a68742b98c66ab854dd6d, type: 2}
+      propertyPath: facebookLike
+      value: 
+      objectReference: {fileID: 100000, guid: 867b650e23b58bb46ad41523975e7837, type: 2}
+    - target: {fileID: 11400002, guid: fa74e8ae474a68742b98c66ab854dd6d, type: 2}
+      propertyPath: facebookDislike
+      value: 
+      objectReference: {fileID: 100000, guid: 7fd3531e82a0e64418ba60e91de32fe4, type: 2}
+    - target: {fileID: 11400002, guid: fa74e8ae474a68742b98c66ab854dd6d, type: 2}
+      propertyPath: facebookLikeOthers
+      value: 
+      objectReference: {fileID: 100000, guid: 3a9b3d911e782a444bc710bab15217cf, type: 2}
+    - target: {fileID: 11400002, guid: fa74e8ae474a68742b98c66ab854dd6d, type: 2}
+      propertyPath: facebookDislikeOthers
+      value: 
+      objectReference: {fileID: 100000, guid: e199c86ce8d70af43b3d5f7462b9185e, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fa74e8ae474a68742b98c66ab854dd6d, type: 2}
   m_RootGameObject: {fileID: 1997916760}
@@ -3512,10 +3528,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   localPlayer: {fileID: 100002, guid: 6b9bef1a0d5c443c7a861d4ed66c8c62, type: 2}
   spawnPoint: {fileID: 1302915477}
-  facebookLike: {fileID: 0}
-  facebookDislike: {fileID: 0}
-  facebookLikeOthers: {fileID: 0}
-  facebookDislikeOthers: {fileID: 0}
+  facebookLike: {fileID: 100000, guid: 867b650e23b58bb46ad41523975e7837, type: 2}
+  facebookDislike: {fileID: 100000, guid: 7fd3531e82a0e64418ba60e91de32fe4, type: 2}
+  facebookLikeOthers: {fileID: 100000, guid: 3a9b3d911e782a444bc710bab15217cf, type: 2}
+  facebookDislikeOthers: {fileID: 100000, guid: e199c86ce8d70af43b3d5f7462b9185e,
+    type: 2}
 --- !u!4 &1997916762
 Transform:
   m_ObjectHideFlags: 0
